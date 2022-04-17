@@ -1,0 +1,21 @@
+.film-tool-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #fff;
+  min-height: 45px;
+
+  &__item {
+    padding: 0 40px;
+  }
+
+  .toolbar-item {
+    &__tiles {
+
+    }
+
+    &__list {
+
+    }
+  }
+}

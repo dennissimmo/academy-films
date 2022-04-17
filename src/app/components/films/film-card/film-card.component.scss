@@ -1,0 +1,20 @@
+.film-card {
+  display: flex;
+
+  min-height: 200px;
+  background-color: gray;
+
+  &__img {
+    flex: 0 0 50%;
+    align-self: center;
+    img {
+      margin-left: 10px;
+      max-width: 100%;
+    }
+  }
+
+  .content-item {
+    padding: 0 0 0 15px;
+    flex: 1 1 auto;
+  }
+}
