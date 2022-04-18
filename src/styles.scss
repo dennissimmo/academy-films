@@ -1,75 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
-$fontFamily: Roboto, 'Helvetica Neue', sans-serif;
+@use '/node_modules/@angular/material/index' as mat;
+@use 'sass:map';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import "./styles/variables";
 
-* {
-  padding: 0px;
-  margin: 0px;
-  border: 0px;
+@include mat.core();
+@import '~@angular/material/theming';
+@import 'styles/custom-theme';
+@include mat-core();
+// Include the theme mixins for other components you use here.
+
+@import "app/components/main-tool-bar/main-tool-bar.component.theme";
+@import "app/components/films/film-tool-bar/film-tool-bar.component.theme";
+@import "app/app.component.theme";
+@import "app/components/films/film-card/film-card.component.theme";
+@import "app/components/films/film-grid/film-grid.component.theme";
+
+@mixin web-custom-components-theme($theme) {
+  @include main-tool-bar($theme);
+  @include film-tool-bar($theme);
+  @include app-component($theme);
+  @include film-card($theme);
+  @include film-grid($theme);
 }
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+
+.light-theme {
+  @include web-custom-components-theme($light-theme);
+  @include mat.all-component-themes($light-theme);
 }
-:focus,
-:active {
-  // outline: none;
+
+.dark-theme {
+  @include web-custom-components-theme($dark-theme);
+  @include mat.all-component-themes($dark-theme);
 }
-a:focus,
-a:active {
-  // outline: none;
-}
-html,
-body {
+
+
+html, body {
   height: 100%;
 }
 
 body {
-  line-height: 1;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
-  //text-rendering: optimizeLegibility;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-input,
-button,
-textarea {
-  font-family: $fontFamily;
-  font-size: inherit;
-}
-button {
-  cursor: pointer;
-  color: inherit;
-  background-color: inherit;
-}
-a {
-  color: inherit;
-}
-a:link,
-a:visited {
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: none;
-}
-ul li {
-  list-style: none;
-}
-img {
-  vertical-align: top;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: inherit;
-  font-size: inherit;
-}
+  margin: 0;
+  font-family: Roboto,
+  "Helvetica Neue", sans-serif;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  .mat-select {
+    width: auto;
+  }
+
+  .mat-menu-content:not(:empty) {
+    padding: 0;
+  }
+}

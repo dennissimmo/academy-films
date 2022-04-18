@@ -2,7 +2,6 @@
   display: flex;
 
   min-height: 200px;
-  background-color: gray;
 
   &__img {
     flex: 0 0 50%;
@@ -16,5 +15,23 @@
   .content-item {
     padding: 0 0 0 15px;
     flex: 1 1 auto;
+    span {
+      font-weight: bold;
+    }
+
+    &__title {
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &__issue-year {
+
+    }
+
+    &__box-office {
+
+    }
   }
 }

@@ -1,1 +1,12 @@
-<p>main-tool-bar works!</p>
+<div class="header">
+  <div class="header__theme-slider">
+    <mat-slide-toggle
+      color="primary"
+      [labelPosition]="'before'"
+      (change)="toggleTheme($event.checked)"
+      [checked]="isDarkMode"
+    >
+    <span>Dark mode</span>
+    </mat-slide-toggle>
+  </div>
+</div>

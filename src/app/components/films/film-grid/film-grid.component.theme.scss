@@ -1,0 +1,12 @@
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
+
+
+@mixin film-grid($theme) {
+  $background: map-get($theme, background);
+
+  //.film-card {
+  //  background-color: mat.get-color-from-palette($background, background);
+  //  color: mat.get-color-from-palette($background, color);
+  //}
+}
