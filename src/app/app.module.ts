@@ -12,15 +12,17 @@ import {FormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
+import {PrettyFormatPipe} from "./pipes/pretty-format.pipe";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainToolBarComponent,
-    FilmToolBarComponent,
-    FilmCardComponent,
-    FilmGridComponent
-  ],
+    declarations: [
+        AppComponent,
+        MainToolBarComponent,
+        FilmToolBarComponent,
+        FilmCardComponent,
+        FilmGridComponent,
+        PrettyFormatPipe
+    ],
     imports: [
         BrowserModule,
         NoopAnimationsModule,
