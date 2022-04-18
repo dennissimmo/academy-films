@@ -1,12 +1,20 @@
 <div class="film-tool-bar">
   <div class="film-tool-bar__item toolbar-item">
-    <span class="toolbar-item__tiles">
-      Tiles
-    </span>
+    <button
+      mat-icon-button
+      [ngClass]="{ 'active' : viewMode === ViewMode.TILES }"
+      (click)="viewModeChanged(ViewMode.TILES)"
+    >
+      <mat-icon class="toolbar-item__tiles">view_module</mat-icon>
+    </button>
   </div>
   <div class="film-tool-bar__item toolbar-item">
-    <span class="toolbar-item__list">
-      List
-    </span>
+    <button
+      mat-icon-button
+      [ngClass]="{ 'active' : viewMode === ViewMode.LIST }"
+      (click)="viewModeChanged(ViewMode.LIST)"
+    >
+      <mat-icon class="toolbar-item__list">list</mat-icon>
+    </button>
   </div>
 </div>

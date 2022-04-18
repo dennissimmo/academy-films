@@ -2,20 +2,28 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: #fff;
   min-height: 45px;
 
   &__item {
-    padding: 0 40px;
+    padding: 0 10px;
   }
 
   .toolbar-item {
     &__tiles {
-
+      &:hover {
+        color: #5285cc;
+      }
     }
 
     &__list {
-
+      font-size: 30px;
+      &:hover {
+        color: #5285cc;
+      }
     }
   }
+}
+
+.active {
+  color: #5285cc;
 }

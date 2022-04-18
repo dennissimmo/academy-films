@@ -1,16 +1,16 @@
 <div class="film-card">
   <div class="film-card__img">
-    <img src="../../../../assets/img/avatar.jpg" alt="poster">
+    <img [src]="currentFilm.poster" alt="poster">
   </div>
   <div class="film-card__content content-item">
     <div class="content-item__title">
-      <h2>Avatar</h2>
+      <h2>{{ currentFilm.name }}</h2>
     </div>
     <div class="content-item__issue-year">
-      <p>(2019)</p>
+      <p><span>Year of issue:</span> ({{ currentFilm.issueYear }})</p>
     </div>
-    <div class="content-item__cach-collection">
-      <p>2 797 800 564 $</p>
+    <div class="content-item__box-office">
+      <p><span>Box office:</span> {{ currentFilm.boxOffice }} $</p>
     </div>
   </div>
 </div>

@@ -1,0 +1,13 @@
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
+
+
+@mixin main-tool-bar($theme) {
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  .header{
+    background: mat.get-color-from-palette($background, background);
+    color: mat.get-color-from-palette($background, color);
+  }
+}

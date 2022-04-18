@@ -1,7 +1,11 @@
 <div class="grid-container">
-  <div class="grid-item" [ngClass]="{ 'list' : true }" *ngFor="let card of cards">
-    <film-card>
+  <div
+    class="grid-item"
+    [ngClass]="viewMode === ViewMode.TILES ? 'tile' : 'list'"
+    *ngFor="let film of films"
+  >
+    <film-card [film]="film">
 
     </film-card>
   </div>
-</div>
+</div
