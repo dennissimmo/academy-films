@@ -1,22 +1,19 @@
-import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
-import { Film } from "../../../models/film.model";
-import {MatInput} from "@angular/material/input";
+import {Film} from "../../../models/film.model";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-film-add-form',
   templateUrl: './film-add-form.component.html',
   styleUrls: ['./film-add-form.component.scss']
 })
-export class FilmAddFormComponent implements OnInit, AfterViewInit {
+export class FilmAddFormComponent implements OnInit {
   film: Film;
   filmFormGroup: FormGroup;
   imageUrl: string;
 
-  @ViewChild('actorName')
-  actorName: MatInput;
-
-  constructor(private changeDetector: ChangeDetectorRef) { }
+  constructor(private dialog: MatDialogRef<FilmAddFormComponent>) { }
 
   get actors() {
     return this.filmFormGroup.get('actors') as FormArray;
@@ -24,10 +21,6 @@ export class FilmAddFormComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.initFormGroup();
-  }
-
-  ngAfterViewInit(): void {
-
   }
 
   initFormGroup() {
@@ -52,6 +45,7 @@ export class FilmAddFormComponent implements OnInit, AfterViewInit {
     }
 
     this.film = filmEntry;
+    this.dialog.close(true);
   }
 
   addActor() {

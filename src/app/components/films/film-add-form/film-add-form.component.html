@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 mat-dialog-title>Adding new film</h2>
+  <h2 mat-dialog-title>Add new film</h2>
   <form [formGroup]="filmFormGroup" (ngSubmit)="onSubmit()">
     <mat-dialog-content class="content">
       <mat-form-field class="content__item" appearance="fill">
@@ -8,6 +8,7 @@
           type="text"
           matInput
           formControlName="name"
+          placeholder="Ex. Avatar"
         >
       </mat-form-field>
       <mat-form-field class="content__item" appearance="fill">
@@ -16,17 +17,24 @@
           type="number"
           matInput
           formControlName="year"
+          placeholder="Ex. 2019"
         >
       </mat-form-field>
-      <mat-form-field class="content__item" appearance="fill">
+      <mat-form-field class="content__item" appearance="fill" floatLabel="always">
         <mat-label>Box office:</mat-label>
-        <mat-hint>In $</mat-hint>
+        <span matPrefix>$&nbsp;</span>
         <input
           type="number"
           matInput
           formControlName="boxOffice"
+          placeholder="Ex. 2035234"
         >
       </mat-form-field>
+      <div class="error">
+        <span *ngIf="filmFormGroup.invalid">
+          {{ 'Fill required fields' }}
+        </span>
+      </div>
       <input
         class="content__item fileInput"
         type="file"
@@ -47,6 +55,7 @@
                   type="text"
                   matInput
                   formControlName="name"
+                  placeholder="Ex. Will"
                 >
               </mat-form-field>
               <mat-form-field class="actor-row__item" appearance="fill">
@@ -55,12 +64,20 @@
                   type="text"
                   matInput
                   formControlName="surname"
+                  placeholder="Ex. Smith"
                 >
               </mat-form-field>
-              <mat-icon (click)="removeActor(i)">delete_forever</mat-icon>
+              <mat-icon class="remove-btn" (click)="removeActor(i)">delete_forever</mat-icon>
             </div>
           </ng-container>
-          <button class="add-btn" mat-mini-fab (click)="addActor()">
+          <button
+            class="add-btn"
+            mat-mini-fab
+            matTooltip="Add new actor"
+            matTooltipPosition="after"
+            type="button"
+            (click)="addActor()"
+          >
             <mat-icon>add</mat-icon>
           </button>
         </ng-container>
@@ -69,7 +86,6 @@
     <mat-dialog-actions class="actions">
       <button
         mat-raised-button
-        [mat-dialog-close]="true"
         color="accent"
         type="submit"
         [disabled]="!this.filmFormGroup.valid"
