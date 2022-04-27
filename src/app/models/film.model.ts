@@ -5,6 +5,6 @@ export interface Film {
   issueYear: number,
   poster: string,
   boxOffice: number,
-  actors?: Array<Actor>;
   createdAt: Date;
+  actors?: Array<Actor>;
 }

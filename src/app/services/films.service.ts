@@ -42,6 +42,15 @@ export class FilmsService {
     this.filmsUpdateSubject.next(this.films);
   }
 
+  public searchFilms(searchToken: string) {
+    if (!searchToken || searchToken.trim().length === 0) {
+      this.filmsUpdateSubject.next(this.films);
+    } else {
+      const filteredFilms: Film[] = this.films.filter(film => film.name.toLowerCase().indexOf(searchToken) >= 0);
+      this.filmsUpdateSubject.next(filteredFilms);
+    }
+  }
+
   public sortModeChanged(sortMode: SortMode) {
     switch (sortMode) {
       case SortMode.BY_NAME:
