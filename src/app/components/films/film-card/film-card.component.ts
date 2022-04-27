@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Film} from "../../../models/film.model";
 
 @Component({
@@ -18,9 +18,15 @@ export class FilmCardComponent implements OnInit {
     this.currentFilm = film;
   }
 
+  @Output('filmRemoved')
+  filmRemovedEventEmitter: EventEmitter<void> = new EventEmitter<void>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  removeFilm() {
+    this.filmRemovedEventEmitter.emit();
+  }
 }

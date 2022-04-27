@@ -8,11 +8,16 @@ import { FilmToolBarComponent } from './components/films/film-tool-bar/film-tool
 import { FilmCardComponent } from './components/films/film-card/film-card.component';
 import { FilmGridComponent } from './components/films/film-grid/film-grid.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
 import {PrettyFormatPipe} from "./pipes/pretty-format.pipe";
+import { MatDialogModule} from "@angular/material/dialog";
+import {FilmAddFormComponent} from "./components/films/film-add-form/film-add-form.component";
+import {MatInputModule} from "@angular/material/input";
+import {UkrainianDatePipe} from "./pipes/ukrainian-date.pipe";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
     declarations: [
@@ -21,17 +26,23 @@ import {PrettyFormatPipe} from "./pipes/pretty-format.pipe";
         FilmToolBarComponent,
         FilmCardComponent,
         FilmGridComponent,
-        PrettyFormatPipe
+        PrettyFormatPipe,
+        FilmAddFormComponent,
+        UkrainianDatePipe
     ],
-    imports: [
-        BrowserModule,
-        NoopAnimationsModule,
-        MatSlideToggleModule,
-        FormsModule,
-        MatIconModule,
-        HttpClientModule,
-        MatButtonModule
-    ],
+  imports: [
+    BrowserModule,
+    NoopAnimationsModule,
+    MatSlideToggleModule,
+    FormsModule,
+    MatIconModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,23 @@
 <div class="film-tool-bar">
+  <div class="film-tool-bar__sort">
+    <mat-form-field class="select" appearance="outline">
+      <mat-label>Sort by</mat-label>
+      <mat-select [(ngModel)]="sortMode" (selectionChange)="onSortingChanged($event.value)">
+        <mat-option [value]="SortMode.BY_NAME">By name</mat-option>
+        <mat-option [value]="SortMode.BY_RELEASE_YEAR">By release year</mat-option>
+        <mat-option [value]="SortMode.BY_DATE_ADDED">By data added</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="film-tool-bar__add">
+    <button
+      mat-flat-button
+      color="accent"
+      (click)="addFilm()"
+    >
+      New film
+    </button>
+  </div>
   <div class="film-tool-bar__item toolbar-item">
     <button
       mat-icon-button

@@ -1,3 +1,5 @@
+@import "src/styles/variables";
+
 .film-tool-bar {
   display: flex;
   justify-content: flex-end;
@@ -8,7 +10,24 @@
     padding: 0 10px;
   }
 
+  &__sort {
+    padding: 5px 10px;
+
+    .select {
+      width: 150px;
+    }
+
+    ::ng-deep .mat-form-field-wrapper {
+      padding: 0;
+    }
+  }
+
+  &__add {
+    padding: 0 10px;
+  }
+
   .toolbar-item {
+
     &__tiles {
       &:hover {
         color: #5285cc;
@@ -21,9 +40,17 @@
         color: #5285cc;
       }
     }
+
+
   }
 }
 
 .active {
   color: #5285cc;
+}
+
+@media (max-width: $mobileSmall) {
+  .toolbar-item {
+    display: none;
+  }
 }

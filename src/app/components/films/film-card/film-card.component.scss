@@ -13,13 +13,26 @@
   }
 
   .content-item {
+    position: relative;
     padding: 0 0 0 15px;
     flex: 1 1 auto;
     span {
       font-weight: bold;
     }
 
+    &__remove-icon {
+      position: absolute;
+      top: 4px;
+      right: 0;
+
+      &:hover {
+        color: red;
+        cursor: pointer;
+      }
+    }
+
     &__title {
+      padding: 0 24px 0 0;
 
       &:hover {
         text-decoration: underline;

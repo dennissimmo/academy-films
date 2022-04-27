@@ -4,7 +4,10 @@
     [ngClass]="viewMode === ViewMode.TILES ? 'tile' : 'list'"
     *ngFor="let film of films"
   >
-    <film-card [film]="film">
+    <film-card
+      [film]="film"
+      (filmRemoved)="onFilmRemoved(film.name)"
+    >
 
     </film-card>
   </div>
