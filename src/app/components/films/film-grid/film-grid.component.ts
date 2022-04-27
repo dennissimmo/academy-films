@@ -32,7 +32,6 @@ export class FilmGridComponent implements OnInit, OnDestroy {
       });
     this.viewModeService.initViewMode();
     this.filmsService.initialize();
-    this.films = this.filmsService.getFilms();
     this.filmsUpdatesSubscription = this.filmsService.filmsUpdateSubject.subscribe((films: Film[]) => {
       this.films = films;
     })

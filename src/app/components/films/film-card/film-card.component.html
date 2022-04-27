@@ -7,16 +7,25 @@
       <mat-icon (click)="removeFilm()">close</mat-icon>
     </span>
     <div class="content-item__title">
-      <h2>{{ currentFilm.name }}</h2>
+      <h2>{{ currentFilm?.name }}</h2>
     </div>
     <div class="content-item__issue-year">
-      <p><span>Year of issue:</span> ({{ currentFilm.issueYear }})</p>
+      <p><span class="field_name">Year of issue:</span> ({{ currentFilm.issueYear }})</p>
     </div>
     <div class="content-item__box-office">
-      <p><span>Box office:</span> {{ currentFilm.boxOffice | boxOffice }} $</p>
+      <p><span class="field_name">Box office:</span> {{ currentFilm.boxOffice | boxOffice }} $</p>
+    </div>
+    <div class="content-item__actors">
+      <p>
+        <span class="field_name">Actors: </span>
+        <span *ngFor="let actor of currentFilm.actors; last as isLast">
+          {{ isLast ? actor.name + ' ' + actor.surname : actor.name + ' ' + actor.surname + ',' }}
+        </span>
+      </p>
+
     </div>
     <div class="content-item__created-at">
-      <p><span>Created at :</span> {{ currentFilm.createdAt | ukrainianDate }}</p>
+      <p><span class="field_name">Created at :</span> {{ currentFilm.createdAt | ukrainianDate }}</p>
     </div>
   </div>
 </div>

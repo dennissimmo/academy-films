@@ -16,10 +16,19 @@
 
 .tile {
   flex: 0 0 calc(33.33% - 7px);
+
+  img {
+    margin-left: 10px;
+    max-width: 100%;
+  }
 }
 
 .list {
   flex: 0 0 100%;
+
+  img {
+
+  }
 }
 
 @media (max-width: $tablet) {
@@ -28,7 +37,7 @@
   }
 }
 
-@media (max-width: $mobileSmall) {
+@media (max-width: $mobile) {
   .tile {
     flex: 0 0 100%;
   }
