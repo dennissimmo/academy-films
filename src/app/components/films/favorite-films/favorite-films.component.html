@@ -1,0 +1,16 @@
+<div class="grid-container">
+  <div class="grid-header">
+    <h2>Favorite films</h2>
+  </div>
+  <div
+    class="grid-item list"
+    *ngFor="let film of favoriteFilms"
+  >
+    <film-card
+      [film]="film"
+      (filmRemoved)="onFilmRemoved(film.name)"
+      (favoriteRemoved)="onFavoriteRemoved(film.name)"
+    >
+    </film-card>
+  </div>
+</div>

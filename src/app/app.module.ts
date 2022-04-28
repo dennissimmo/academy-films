@@ -19,6 +19,8 @@ import {MatInputModule} from "@angular/material/input";
 import {UkrainianDatePipe} from "./pipes/ukrainian-date.pipe";
 import {MatSelectModule} from "@angular/material/select";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { FavoriteFilmsComponent } from './components/films/favorite-films/favorite-films.component';
+import {RoutingModule} from "./routes/routing.module";
 
 @NgModule({
     declarations: [
@@ -29,7 +31,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
         FilmGridComponent,
         PrettyFormatPipe,
         FilmAddFormComponent,
-        UkrainianDatePipe
+        UkrainianDatePipe,
+        FavoriteFilmsComponent
     ],
     imports: [
         BrowserModule,
@@ -44,6 +47,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
         ReactiveFormsModule,
         MatSelectModule,
         MatTooltipModule,
+        RoutingModule
     ],
   providers: [],
   bootstrap: [AppComponent]
