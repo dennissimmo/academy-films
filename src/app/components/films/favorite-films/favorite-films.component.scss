@@ -6,6 +6,12 @@
   flex-wrap: wrap;
   padding: 10px;
   gap: 10px;
+
+  .grid-header {
+    h2 {
+      font-size: 36px;
+    }
+  }
 }
 
 .grid-item {
