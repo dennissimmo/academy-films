@@ -32,7 +32,8 @@ export class FilmToolBarComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.viewMode = this.viewModeService.getViewMode();
-    this.sortMode = SortMode.BY_NAME;
+    const storedSortMode = localStorage.getItem('sort-mode');
+    this.sortMode = storedSortMode === null ? SortMode.BY_NAME : storedSortMode as SortMode;
   }
 
   ngAfterViewInit() {
