@@ -1,0 +1,19 @@
+@import "src/styles/variables";
+
+.grid-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 10px;
+}
+
+.grid-item {
+  box-shadow: -1px 3px 5px -1px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -1px 3px 5px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 3px 5px -1px rgba(0,0,0,0.75);
+}
+
+.list {
+  flex: 0 0 100%;
+}
