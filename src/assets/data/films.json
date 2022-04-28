@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Avengers",
+    "issueYear": 2012,
+    "boxOffice": 23400,
+    "poster": "https://image.tmdb.org/t/p/w342/ltTLJvfn8PIx1d6niwS4A9IJ3yM.jpg",
+    "actors": [
+      {
+        "name": "Cristofer",
+        "surname": "Markus"
+      },
+      {
+        "name": "Stan",
+        "surname": "Lee"
+      }
+    ],
+    "createdAt": "Thu Jan 03 2022 12:25:58"
+  },
+  {
+    "name": "Beauty and The Beast",
+    "issueYear": 2017,
+    "boxOffice": 1263521126,
+    "poster": "https://i.kinobaza.com.ua/posters/300x450/60fe786edac1d.jpg",
+    "actors": [
+      {
+        "name": "Zoe",
+        "surname": "Saldana"
+      }
+    ],
+    "createdAt": "Thu Apr 24 2022 02:25:58"
+  },
+  {
+    "name": "Avatar",
+    "issueYear": 2009,
+    "boxOffice": 980,
+    "poster": "https://image.tmdb.org/t/p/w342/uaRusyPlXRD4w3XPbfDDbO4jXST.jpg",
+    "actors": [
+      {
+        "name": "Sigourney",
+        "surname": "Weaver"
+      },
+      {
+        "name": "Zoe",
+        "surname": "Saldana"
+      }
+    ],
+    "createdAt": "Thu Apr 20 2021 08:25:58"
+  },
+  {
+    "name": "Titanic",
+    "issueYear": 1997,
+    "boxOffice": 2186772302,
+    "poster": "https://image.tmdb.org/t/p/w342/2XmEN166CfFcJIU62PYmVTxSm4p.jpg",
+    "actors": [
+      {
+        "name": "Leonardo",
+        "surname": "DiCaprio"
+      },
+      {
+        "name": "Kate",
+        "surname": "Winslet"
+      }
+    ],
+    "createdAt": "Thu Apr 09 2022 07:03:34"
+  },
+  {
+    "name": "Spider-Man: No Way Home",
+    "issueYear": 2021,
+    "boxOffice": 1892095052,
+    "poster": "https://image.tmdb.org/t/p/w342/8GbtUB55JYQfo1xA48bbx5baxcO.jpg",
+    "actors": [
+      {
+        "name": "Zoe",
+        "surname": "Saldana"
+      }
+    ],
+    "createdAt": "Thu Apr 17 2022 11:25:58"
+  },
+  {
+    "name": "Jurassic World",
+    "issueYear": 2015,
+    "boxOffice": 1671713208,
+    "poster": "https://image.tmdb.org/t/p/w342/mu8CzE6CPZMZIyTe6g2p2TLTBwX.jpg",
+    "actors": [
+      {
+        "name": "Zoe",
+        "surname": "Saldana"
+      }
+    ],
+    "createdAt": "Thu Apr 01 2022 12:25:58"
+  }
+]

@@ -48,8 +48,8 @@ body .light-theme {
 }
 
 // Dark theme
-$dark-primary: mat.define-palette(mat.$blue-gray-palette, 800);
-$dark-accent: mat.define-palette(mat.$blue-palette, 700);
+$dark-primary: mat.define-palette(mat.$blue-gray-palette, 400);
+$dark-accent: mat.define-palette(mat.$blue-palette, 300);
 $dark-warn: mat.define-palette(mat.$red-palette);
 
 $dark-theme: mat.define-dark-theme((
@@ -64,6 +64,7 @@ $dark-theme: mat.define-dark-theme((
 // background
 $background-color: #2a2931;
 $card-color: #36353f;
+//$card-color: #36353f;
 // foreground
 $icon-color: #2196f3;
 // panel menu

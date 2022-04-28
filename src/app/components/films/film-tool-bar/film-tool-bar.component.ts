@@ -54,10 +54,7 @@ export class FilmToolBarComponent implements OnInit, AfterViewInit {
 
     filmDialog.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        // add new film in array,
-        // we can do it in two ways, create a separate component, films.component, and through Output, emit, that new film was
-        // added , and push in result array,
-        // or create a service, we should, store all available films, and call add method, when dialog, was closed
+        // add new film in array
         const filmData: Film = filmDialog.componentInstance.film;
         this.filmsService.filmAdded(filmData);
       }

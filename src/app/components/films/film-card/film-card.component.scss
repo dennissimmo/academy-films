@@ -1,29 +1,35 @@
+@import "src/styles/variables";
+
 .film-card {
   display: flex;
-
   min-height: 200px;
+  height: 100%;
+  position: relative;
+
+  @media (max-width: $mobileSmall) {
+    flex-direction: column;
+  }
 
   &__img {
     flex: 0 0 50%;
     align-self: center;
     img {
-      margin-left: 10px;
-      max-width: 100%;
+      padding: 20px 0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
     }
   }
 
   .content-item {
-    position: relative;
-    padding: 0 0 0 15px;
+    padding: 20px 0 20px 15px;
     flex: 1 1 auto;
-    span {
-      font-weight: bold;
-    }
 
     &__remove-icon {
       position: absolute;
       top: 4px;
-      right: 0;
+      right: 4px;
 
       &:hover {
         color: red;
@@ -46,5 +52,9 @@
     &__box-office {
 
     }
+  }
+
+  .field_name {
+    font-weight: bold;
   }
 }

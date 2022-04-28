@@ -18,6 +18,7 @@ import {FilmAddFormComponent} from "./components/films/film-add-form/film-add-fo
 import {MatInputModule} from "@angular/material/input";
 import {UkrainianDatePipe} from "./pipes/ukrainian-date.pipe";
 import {MatSelectModule} from "@angular/material/select";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
     declarations: [
@@ -30,19 +31,20 @@ import {MatSelectModule} from "@angular/material/select";
         FilmAddFormComponent,
         UkrainianDatePipe
     ],
-  imports: [
-    BrowserModule,
-    NoopAnimationsModule,
-    MatSlideToggleModule,
-    FormsModule,
-    MatIconModule,
-    HttpClientModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatSelectModule,
-  ],
+    imports: [
+        BrowserModule,
+        NoopAnimationsModule,
+        MatSlideToggleModule,
+        FormsModule,
+        MatIconModule,
+        HttpClientModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatSelectModule,
+        MatTooltipModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
