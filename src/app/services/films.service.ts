@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Film} from "../models/film.model";
-import {lastValueFrom, Observable, Subject} from "rxjs";
+import {lastValueFrom, Observable, Subject, Subscription} from "rxjs";
 import {SortMode} from "./sort-mode.enum";
 import {HttpClient} from "@angular/common/http";
 
@@ -12,6 +12,7 @@ export const PATH_TO_FILMS = './assets/data/';
 export class FilmsService {
   films: Film[];
   filmsUpdateSubject: Subject<Array<Film>>;
+  filmsUpdateSubscription: Subscription;
   defaultFilms: Film[] = [
     { name: 'Avengers', issueYear: 2012, boxOffice: 23400, poster: 'https://image.tmdb.org/t/p/w342/ltTLJvfn8PIx1d6niwS4A9IJ3yM.jpg', actors: [{ name : 'Peter', surname: 'Andersen' }], createdAt: new Date(1650494565)},
     { name: 'Beauty and The Beast', issueYear: 2017, boxOffice: 1263521126, poster: 'https://i.kinobaza.com.ua/posters/300x450/60fe786edac1d.jpg', actors: [{ name : 'Zoe', surname: 'Saldana' }], createdAt: new Date("2009-12-17T03:24:00")},
@@ -26,14 +27,26 @@ export class FilmsService {
   }
 
   public initialize() {
-    this.loadFilmsFromAssets()
-      .then((films: Array<Film>) => {
-        this.films = films.map(film => {
-          film.createdAt = new Date(film.createdAt);
-          return film;
+    const storageFilms: Film[] | null = this.loadFromStorage();
+    if (storageFilms === null) {
+      this.loadFilmsFromAssets()
+        .then((films: Array<Film>) => {
+          this.films = films.map(film => {
+            film.createdAt = new Date(film.createdAt);
+            return film;
+          });
         });
-        this.filmsUpdateSubject.next(this.films);
+    } else {
+      this.films = storageFilms.map(film => {
+        film.createdAt = new Date(film.createdAt);
+        return film;
       });
+    }
+    this.filmsUpdateSubject.next(this.films);
+
+    this.filmsUpdateSubscription = this.filmsUpdateSubject.subscribe((filmsUpdated: Film[]) => {
+      this.saveToStorage(filmsUpdated);
+    });
   }
 
   public async loadFilmsFromAssets(): Promise<Array<Film>> {
@@ -69,6 +82,16 @@ export class FilmsService {
     }
   }
 
+  public loadFromStorage(): Film[] | null {
+    const data = localStorage.getItem('films');
+    return data !== null ? JSON.parse(data) : null;
+  }
+
+  public saveToStorage(films: Film[]): void {
+    const filmsStr: string = JSON.stringify(films);
+    localStorage.setItem('films', filmsStr);
+  }
+
   public sortModeChanged(sortMode: SortMode) {
     switch (sortMode) {
       case SortMode.BY_NAME:
@@ -83,6 +106,7 @@ export class FilmsService {
       default:
         break;
     }
+    localStorage.setItem('sort-mode', sortMode);
     this.filmsUpdateSubject.next(this.films);
   }
 
@@ -99,5 +123,9 @@ export class FilmsService {
 
   private sortByReleaseYear(): void {
     this.films.sort((a: Film, b: Film) => a.issueYear - b.issueYear);
+  }
+
+  public dispose(): void {
+    this.filmsUpdateSubscription.unsubscribe();
   }
 }
