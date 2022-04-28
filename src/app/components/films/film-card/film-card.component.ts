@@ -22,6 +22,9 @@ export class FilmCardComponent implements OnInit {
   @Output('filmRemoved')
   filmRemovedEventEmitter: EventEmitter<void> = new EventEmitter<void>();
 
+  @Output('favoriteRemoved')
+  favoriteRemovedEmitter: EventEmitter<void> = new EventEmitter<void>();
+
   constructor(
     private filmsService: FilmsService
   ) { }
@@ -35,6 +38,9 @@ export class FilmCardComponent implements OnInit {
 
   toggleFavorite() {
     this.currentFilm.isFavourite = !this.currentFilm.isFavourite;
+    if (!this.currentFilm.isFavourite) {
+      this.favoriteRemovedEmitter.emit();
+    }
     this.filmsService.updateFavorites();
   }
 }

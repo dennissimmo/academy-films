@@ -24,6 +24,15 @@
     }
   }
 
+  &__back {
+    display: block;
+
+    .active {
+      display: none;
+    }
+
+  }
+
   &__favorites {
     padding: 0 10px;
     z-index: 2;
@@ -35,6 +44,7 @@
       text-decoration: none;
       color: inherit;
     }
+
     .count {
       width: 22px;
       height: 22px;
@@ -54,6 +64,14 @@
 
   &__theme-slider {
     padding: 0 25px 0 0;
+
+    .title {
+      display: inline-block;
+      @media (max-width: $mobileSmall) {
+        transition: all 0.3s ease 0s;
+        display: none;
+      }
+    }
   }
 }
 

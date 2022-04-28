@@ -10,8 +10,16 @@
       >
     </mat-form-field>
   </div>
+  <div class="header__back">
+    <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <button mat-raised-button>
+        <mat-icon>arrow_back</mat-icon>
+        Back
+      </button>
+    </a>
+  </div>
   <div class="header__favorites">
-    <a href="" class="link">
+    <a routerLink="/favorites" class="link">
       <button mat-icon-button aria-label="Favorites">
         <mat-icon>favorite_border</mat-icon>
         <span *ngIf="favoritesCount" class="count">{{ favoritesCount }}</span>
@@ -25,7 +33,7 @@
       (change)="toggleTheme($event.checked)"
       [checked]="isDarkMode"
     >
-    <span>Dark mode</span>
+    <span class="title">Dark mode</span>
     </mat-slide-toggle>
   </div>
 </div>

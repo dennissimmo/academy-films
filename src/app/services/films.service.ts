@@ -70,6 +70,9 @@ export class FilmsService {
   }
 
   public getFavouriteFilms(): Film[] {
+    if (this.films === undefined) {
+      return [];
+    }
     return this.films.filter(film => film.isFavourite);
   }
 
@@ -118,7 +121,10 @@ export class FilmsService {
     localStorage.setItem('films', filmsStr);
   }
 
-  public sortModeChanged(sortMode: SortMode) {
+  public sortModeChanged(sortMode: SortMode): void {
+    if (!this.films) {
+      return;
+    }
     switch (sortMode) {
       case SortMode.BY_NAME:
         this.sortByName();
