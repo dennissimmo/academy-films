@@ -9,7 +9,14 @@
         [formControl]="searchFormControl"
       >
     </mat-form-field>
-
+  </div>
+  <div class="header__favorites">
+    <a href="" class="link">
+      <button mat-icon-button aria-label="Favorites">
+        <mat-icon>favorite_border</mat-icon>
+        <span *ngIf="favoritesCount" class="count">{{ favoritesCount }}</span>
+      </button>
+    </a>
   </div>
   <div class="header__theme-slider">
     <mat-slide-toggle

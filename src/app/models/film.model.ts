@@ -6,5 +6,6 @@ export interface Film {
   poster: string,
   boxOffice: number,
   createdAt: Date;
+  isFavourite?: boolean;
   actors?: Array<Actor>;
 }

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Film} from "../../../models/film.model";
+import {FilmsService} from "../../../services/films.service";
 
 @Component({
   selector: 'film-card',
@@ -21,12 +22,19 @@ export class FilmCardComponent implements OnInit {
   @Output('filmRemoved')
   filmRemovedEventEmitter: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(
+    private filmsService: FilmsService
+  ) { }
 
   ngOnInit(): void {
   }
 
   removeFilm() {
     this.filmRemovedEventEmitter.emit();
+  }
+
+  toggleFavorite() {
+    this.currentFilm.isFavourite = !this.currentFilm.isFavourite;
+    this.filmsService.updateFavorites();
   }
 }

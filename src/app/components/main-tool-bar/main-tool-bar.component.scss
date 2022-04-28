@@ -8,7 +8,7 @@
 
   &__search {
     flex: 0 1 800px;
-    padding: 0 10px 0 20px;
+    padding: 0 5px 0 20px;
 
     .input {
       width: 100%;
@@ -21,6 +21,34 @@
 
     ::ng-deep .mat-form-field-wrapper {
       padding: 0;
+    }
+  }
+
+  &__favorites {
+    padding: 0 10px;
+    z-index: 2;
+    &:hover {
+      cursor: pointer;
+    }
+
+    .link {
+      text-decoration: none;
+      color: inherit;
+    }
+    .count {
+      width: 22px;
+      height: 22px;
+      margin-left: -18px;
+      border-radius: 50%;
+      position: absolute;
+      left: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 1;
+      font-weight: 600;
+      font-size: 12px;
+      background: rgb(58, 119, 255);
     }
   }
 

@@ -12,6 +12,7 @@ export const PATH_TO_FILMS = './assets/data/';
 export class FilmsService {
   films: Film[];
   filmsUpdateSubject: Subject<Array<Film>>;
+  favoriteFilmsSubject: Subject<number>;
   filmsUpdateSubscription: Subscription;
   defaultFilms: Film[] = [
     { name: 'Avengers', issueYear: 2012, boxOffice: 23400, poster: 'https://image.tmdb.org/t/p/w342/ltTLJvfn8PIx1d6niwS4A9IJ3yM.jpg', actors: [{ name : 'Peter', surname: 'Andersen' }], createdAt: new Date(1650494565)},
@@ -24,6 +25,7 @@ export class FilmsService {
 
   constructor(private http: HttpClient) {
     this.filmsUpdateSubject = new Subject<Array<Film>>();
+    this.favoriteFilmsSubject = new Subject<number>();
   }
 
   public initialize() {
@@ -35,6 +37,7 @@ export class FilmsService {
             film.createdAt = new Date(film.createdAt);
             return film;
           });
+          this.filmsUpdateSubject.next(this.films);
         });
     } else {
       this.films = storageFilms.map(film => {
@@ -42,11 +45,12 @@ export class FilmsService {
         return film;
       });
     }
-    this.filmsUpdateSubject.next(this.films);
 
     this.filmsUpdateSubscription = this.filmsUpdateSubject.subscribe((filmsUpdated: Film[]) => {
       this.saveToStorage(filmsUpdated);
     });
+
+    this.notifySubject();
   }
 
   public async loadFilmsFromAssets(): Promise<Array<Film>> {
@@ -60,6 +64,19 @@ export class FilmsService {
     return this.films;
   }
 
+  public updateFavorites(): void {
+    this.filmsUpdateSubject.next(this.films);
+    this.favoriteFilmsSubject.next(this.getFavouritesCount());
+  }
+
+  public getFavouriteFilms(): Film[] {
+    return this.films.filter(film => film.isFavourite);
+  }
+
+  public getFavouritesCount(): number {
+    return this.getFavouriteFilms().length;
+  }
+
   public filmAdded(film: Film) {
     this.films.push(film);
     this.filmsUpdateSubject.next(this.films);
@@ -70,7 +87,16 @@ export class FilmsService {
     if (index !== -1) {
       this.films.splice(index, 1);
     }
+    this.notifySubject();
+  }
+
+  /**
+   * Emit films and favorite films count subjects
+   * @private
+   */
+  private notifySubject(): void {
     this.filmsUpdateSubject.next(this.films);
+    this.updateFavorites();
   }
 
   public searchFilms(searchToken: string) {
@@ -84,7 +110,7 @@ export class FilmsService {
 
   public loadFromStorage(): Film[] | null {
     const data = localStorage.getItem('films');
-    return data !== null ? JSON.parse(data) : null;
+    return data ? JSON.parse(data) : null;
   }
 
   public saveToStorage(films: Film[]): void {
