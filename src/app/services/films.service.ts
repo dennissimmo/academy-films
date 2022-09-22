@@ -30,7 +30,7 @@ export class FilmsService {
 
   public initialize() {
     const storageFilms: Film[] | null = this.loadFromStorage();
-    if (storageFilms === null) {
+    if (storageFilms === null || storageFilms.length === 0) {
       this.loadFilmsFromAssets()
         .then((films: Array<Film>) => {
           this.films = films.map(film => {
