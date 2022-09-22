@@ -22,7 +22,7 @@ From Angular used:
 - Themes
 - ngFor, ngClass, ngSwitch, ngIf, ngContainer
 
-![Main page - tiles mode](/src/assets/presentation/favorite-movies.png)
-![Main page - list mode](https://imgur.com/1X3j9nD)
-![Favorite movies](https://imgur.com/8vTGUT5)
-![New film dialog form](https://drive.google.com/file/d/1qCD214gV9-OdJpdKsKQIduL3c1-YRohu/view?usp=sharing)
+![Main page - tiles mode](/src/assets/presentation/main-page-tile.png)
+![Main page - list mode](/src/assets/presentation/main-page-list.png)
+![Favorite movies](/src/assets/presentation/favorite-movies.png)
+![New film dialog form](/src/assets/presentation/new-film-form.png)
